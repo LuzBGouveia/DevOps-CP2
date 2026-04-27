@@ -1,0 +1,6 @@
+IP da máquina (Azure):45.228.196.131
+
+GET    /api/transacoes
+POST   /api/transacoes
+PUT    /api/transacoes/{id}
+DELETE /api/transacoes/{id}
