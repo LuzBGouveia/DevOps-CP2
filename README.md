@@ -34,7 +34,7 @@ A aplicação foi projetada para execução via Docker e consiste em uma **API R
         └── init.sql               # Criação da tabela e dados seed
 ```
 
-## Como Executar os containers do projeto com bash
+## Como executar o projeto com bash
 
 ### 1. Clonar o repositório
 
@@ -43,12 +43,12 @@ git clone https://github.com/LuzBGouveia/DevOps-CP2
 cd DevOps-CP2
 ```
 
-### 2. Criando a rede do Docker.
+### 2. Criando a rede do Docker
 ```
 docker network create dimdim-network
 ```
 
-### 3. Rodando o container do MySQL (Aguarde alguns segundos ao iniciar o MySQL).
+### 3. Rodando o container do MySQL (aguarde alguns segundos após a inicialização)
 
 ```
 cd mysql-dimdim
@@ -89,5 +89,5 @@ docker ps
 ### 6. Testando endpoint
 
 ```
-curl http://<IP>:8080/transacoes
+curl http://<IP da VM>:8080/transacoes
 ```
