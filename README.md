@@ -89,5 +89,5 @@ docker ps
 ### 6. Testando endpoint
 
 ```
-curl http://<IP>:8080/transactions
+curl http://<IP>:8080/transacoes
 ```
