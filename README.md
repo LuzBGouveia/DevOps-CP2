@@ -33,3 +33,34 @@ A aplicação consiste em uma **API REST** de gerenciamento de transações fina
     └── docker-entrypoint-initdb.d/
         └── init.sql               # Criação da tabela e dados seed
 ```
+
+## Como Executar os containers do projeto com bash
+
+### 1. Clonar o repositório
+
+```
+git clone https://github.com/LuzBGouveia/DevOps-CP2
+cd DevOps-CP2
+```
+
+### 3. Rodando o container do MySQL
+
+```
+cd mysql-dimdim
+docker start mysql-dimdim
+cd ..
+```
+
+### 4. Rodando o container da API
+
+```
+cd transacoes-api
+docker start api-dimdim
+cd ..
+```
+
+### 5. Verificar containers em execução
+
+```bash
+docker ps
+```
