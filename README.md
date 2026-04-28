@@ -48,7 +48,7 @@ cd DevOps-CP2
 docker network create dimdim-network
 ```
 
-### 3. Rodando o container do MySQL
+### 3. Rodando o container do MySQL (Aguarde alguns segundos ao iniciar o MySQL).
 
 ```
 cd mysql-dimdim
