@@ -6,7 +6,7 @@
 
 ## Sobre o Projeto
 
-Este projeto faz parte do **Checkpoint 2 de DevOps** da FIAP. O objetivo é demonstrar o uso de **containers Docker** rodando em uma máquina virtuai na nuvem da **Microsoft Azure**.
+Este projeto faz parte do **Checkpoint 2 de DevOps** da FIAP. O objetivo é demonstrar o uso de **containers Docker** rodando em uma máquina virtual na nuvem da **Microsoft Azure**.
 
 A aplicação consiste em uma **API REST** de gerenciamento de transações financeiras, desenvolvida com **Spring Boot 3** e conectada a um banco de dados **MySQL 8**, onde ambos os serviços rodam como containers Docker.
 
@@ -23,7 +23,7 @@ A aplicação consiste em uma **API REST** de gerenciamento de transações fina
 ## Estrutura do Repositório
 
 ```
-├── docs/                          # Screenshots da aplicação rodando nas VMs
+├── docs/                          # Screenshots da aplicação rodando na VM
 ├── transacoes-api/
 │   ├── Dockerfile.api             # Imagem da API (multi-stage build)
 │   ├── pom.xml
@@ -43,11 +43,24 @@ git clone https://github.com/LuzBGouveia/DevOps-CP2
 cd DevOps-CP2
 ```
 
+### 2. Criando a rede do Docker.
+```
+docker network create dimdim-network
+```
+
 ### 3. Rodando o container do MySQL
 
 ```
 cd mysql-dimdim
-docker start mysql-dimdim
+
+docker build -t mysql-dimdim .
+
+docker run --name mysql-dimdim -d \
+ --network dimdim-network \
+ -p 3306:3306 \
+ -v mysql-dimdim-data:/var/lib/mysql \
+ mysql-dimdim
+
 cd ..
 ```
 
@@ -55,12 +68,26 @@ cd ..
 
 ```
 cd transacoes-api
-docker start api-dimdim
+
+docker build -f Dockerfile.api -t api-dimdim .
+
+docker run --name api-dimdim -d \
+ --network dimdim-network \
+ -p 8080:8080 \
+ api-dimdim
+
 cd ..
 ```
 
 ### 5. Verificar containers em execução
 
-```bash
+```
 docker ps
+```
+
+
+### 6. Testando endpoint
+
+```
+curl http://<IP>:8080/transactions
 ```
