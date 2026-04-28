@@ -53,7 +53,7 @@ docker network create dimdim-network
 ```
 cd mysql-dimdim
 
-docker build -t mysql-dimdim .
+docker build -f Dockerfile.mysql -t mysql-dimdim .
 
 docker run --name mysql-dimdim -d \
  --network dimdim-network \
