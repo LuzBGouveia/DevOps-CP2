@@ -25,11 +25,11 @@ A aplicação foi projetada para execução via Docker e consiste em uma **API R
 ```
 ├── docs/                          # Screenshots da aplicação rodando na VM
 ├── transacoes-api/
-│   ├── Dockerfile.api             # Imagem da API (multi-stage build)
+│   ├── Dockerfile.api             # Imagem da API (build)
 │   ├── pom.xml
 │   └── src/                       # Código-fonte Spring Boot
 └── mysql-dimdim/
-    ├── Dockerfile.mysql           # Imagem do MySQL com banco e dados iniciais
+    ├── Dockerfile.mysql           # Imagem do MySQL com banco e dados iniciais (build)
     └── docker-entrypoint-initdb.d/
         └── init.sql               # Criação da tabela e dados seed
 ```
